@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+}
+
+#todoContainer {
+    display: grid;
+    grid-template-rows: 2fr 10fr 1fr;
+    height: 100vh;
+}
+
+#header {
+    display: flex;
+    background-color: gray;
+    justify-content: center;
+    align-items: center;
+}
+
+#todoBody {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+}
+
+#todoMenu {
+    background-color: lightblue;
+}
+
+#footer {
+    display: flex;
+    background-color: gray;
+    justify-content: center;
+    align-items: center;
+}

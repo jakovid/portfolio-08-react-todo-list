@@ -1,14 +1,18 @@
 import React from "react";
 import Header from "./Components/Header";
 import TodoList from "./Components/TodoList";
+import TodoMenu from "./Components/TodoMenu";
 import Footer from "./Components/Footer";
+import './App.css';
 
 function App() {
   return (
-    <div>
+    <div id='todoContainer'>
       <Header />
-      <TodoList />
-      <input type='text' />
+      <div id='todoBody'>
+          <TodoMenu />
+          <TodoList />
+      </div>
       <Footer />
     </div>
   );
