@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./Components/Header";
 import TodoList from "./Components/TodoList";
-import TodoMenu from "./Components/TodoMenu";
+import ProjectList from "./Components/ProjectList";
 import Footer from "./Components/Footer";
 import './App.css';
 
@@ -10,7 +10,7 @@ function App() {
     <div id='todoContainer'>
       <Header />
       <div id='todoBody'>
-          <TodoMenu />
+          <ProjectList />
           <TodoList />
       </div>
       <Footer />
