@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 export default function TodoMain() {
     const [projects, setProjects] = useState([{ id: uuidv4(), name: 'Today', default:true, todos:[{todo:'eat', id:uuidv4(), complete:false}]},{ id: uuidv4(), name: 'This Week', default:true, todos:[]}]);
-    const [selectedProject, setSelectedProject] = useState([]);
+    const [selectedProject, setSelectedProject] = useState(projects.find(project => project.name === 'Today'));
     const projectNameRef = useRef();
 
     function handleAddProject(e) {
