@@ -17,20 +17,21 @@ export default function TodoMain() {
         projectNameRef.current.value = null;
     }
 
-    // function selectProject(id) {
-
-    // }
+    function selectProject(id) {
+        const theProject = projects.find(project => project.id === id);
+        setSelectedProject(theProject.todos);
+    }
 
     return (
         <div id='todoBody'>
             <div id='projectList'>
                 <h2>Default Projects</h2>
 
-                <ProjectList projects={ projects.filter(project => project.default) } />
+                <ProjectList selectProject={selectProject} projects={ projects.filter(project => project.default) } />
 
                 <h2>My Projects</h2>
 
-                <ProjectList projects={ projects.filter(project => !project.default) } />
+                <ProjectList selectProject={selectProject} projects={ projects.filter(project => !project.default) } />
 
                 <input ref={projectNameRef} type='text'/>
 
