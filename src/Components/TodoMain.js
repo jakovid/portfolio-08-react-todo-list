@@ -1,40 +1,43 @@
 import React, { useState, useRef } from "react";
-import DefaultProjectList from "./DefaultProjectList";
-import UserProjectList from "./UserProjectList";
+import ProjectList from "./ProjectList";
 import TodoList from "./TodoList";
 import { v4 as uuidv4 } from 'uuid';
 
-export default function ProjectList() {
-    const [userProjects, setUserProjects] = useState([]);
-    const [defaultProjects, setDefaultProjects] = useState([{ id: uuidv4(), name: 'Today'},{ id: uuidv4(), name: 'This Week'}]);
+export default function TodoMain() {
+    const [projects, setProjects] = useState([{ id: uuidv4(), name: 'Today', default:true, todos:[{todo:'eat', id:uuidv4(), complete:false}]},{ id: uuidv4(), name: 'This Week', default:true, todos:[]}]);
+    const [selectedProject, setSelectedProject] = useState([]);
     const projectNameRef = useRef();
 
     function handleAddProject(e) {
         const name = projectNameRef.current.value;
         if (name === '') return;
-        setUserProjects(prevProjects => {
-            return [...prevProjects, { id: uuidv4(), name: name}]
+        setProjects(prevProjects => {
+            return [...prevProjects, { id: uuidv4(), name: name, default:false, todos: []}]
         });
         projectNameRef.current.value = null;
     }
+
+    // function selectProject(id) {
+
+    // }
 
     return (
         <div id='todoBody'>
             <div id='projectList'>
                 <h2>Default Projects</h2>
 
-                <DefaultProjectList projects={ defaultProjects }/>
+                <ProjectList projects={ projects.filter(project => project.default) } />
 
                 <h2>My Projects</h2>
 
-                <UserProjectList projects={ userProjects }/>
+                <ProjectList projects={ projects.filter(project => !project.default) } />
 
                 <input ref={projectNameRef} type='text'/>
 
                 <button onClick={handleAddProject}>add new project</button>
             </div>
             <div id='todoList'>
-                <TodoList />
+                <TodoList todos={ selectedProject }/>
             </div>
         </div>
     )
