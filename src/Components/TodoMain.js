@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import DefaultProjectList from "./DefaultProjectList";
 import UserProjectList from "./UserProjectList";
+import TodoList from "./TodoList";
 import { v4 as uuidv4 } from 'uuid';
 
 export default function ProjectList() {
@@ -18,18 +19,23 @@ export default function ProjectList() {
     }
 
     return (
-        <div id='todoMenu'>
-            <h2>Default Projects</h2>
+        <div id='todoBody'>
+            <div id='projectList'>
+                <h2>Default Projects</h2>
 
-            <DefaultProjectList projects={ defaultProjects }/>
+                <DefaultProjectList projects={ defaultProjects }/>
 
-            <h2>My Projects</h2>
+                <h2>My Projects</h2>
 
-            <UserProjectList projects={ userProjects }/>
+                <UserProjectList projects={ userProjects }/>
 
-            <input ref={projectNameRef} type='text'/>
+                <input ref={projectNameRef} type='text'/>
 
-            <button onClick={handleAddProject}>add new project</button>
+                <button onClick={handleAddProject}>add new project</button>
+            </div>
+            <div id='todoList'>
+                <TodoList />
+            </div>
         </div>
     )
 }
