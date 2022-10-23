@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import ProjectList from "./ProjectList";
+import PopulateProjectList from "./PopulateProjectList";
 import TodoList from "./TodoList";
 import { v4 as uuidv4 } from 'uuid';
 
@@ -19,7 +19,7 @@ export default function TodoMain() {
 
     function selectProject(id) {
         const theProject = projects.find(project => project.id === id);
-        setSelectedProject(theProject.todos);
+        setSelectedProject(theProject);
     }
 
     return (
@@ -27,18 +27,18 @@ export default function TodoMain() {
             <div id='projectList'>
                 <h2>Default Projects</h2>
 
-                <ProjectList selectProject={selectProject} projects={ projects.filter(project => project.default) } />
+                <PopulateProjectList selectProject={selectProject} projects={ projects.filter(project => project.default) } />
 
                 <h2>My Projects</h2>
 
-                <ProjectList selectProject={selectProject} projects={ projects.filter(project => !project.default) } />
+                <PopulateProjectList selectProject={selectProject} projects={ projects.filter(project => !project.default) } />
 
                 <input ref={projectNameRef} type='text'/>
 
                 <button onClick={handleAddProject}>add new project</button>
             </div>
             <div id='todoList'>
-                <TodoList todos={ selectedProject }/>
+                <TodoList project={ selectedProject }/>
             </div>
         </div>
     )
