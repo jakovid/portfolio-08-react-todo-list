@@ -38,6 +38,13 @@ export default function TodoMain() {
         setProjects(newProjects);
     }
 
+    function clearTodos(projectId){
+        const newProjects = [...projects];
+        const project = newProjects.find(targetProject => targetProject.id === projectId);
+        project.todos = project.todos.filter(todo => !todo.complete);
+        setProjects(newProjects);
+    }
+
     return (
         <div id='todoBody'>
             <div id='projectList'>
@@ -54,7 +61,7 @@ export default function TodoMain() {
                 <button onClick={handleAddProject}>add new project</button>
             </div>
             <div id='todoList'>
-                <TodoList project={ selectedProject } addTodo={addTodo} toggleTodo={toggleTodo} />
+                <TodoList project={ selectedProject } addTodo={addTodo} toggleTodo={toggleTodo} clearTodos={clearTodos} />
             </div>
         </div>
     )

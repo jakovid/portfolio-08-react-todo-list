@@ -1,13 +1,16 @@
 import React, { useRef } from "react";
 import PopulateTodoList from "./PopulateTodoList";
 
-export default function TodoList({ project, addTodo, toggleTodo }){
+export default function TodoList({ project, addTodo, toggleTodo, clearTodos }){
     const todoNameRef = useRef();
     function handleAddTodo(e) {
         const todo = todoNameRef.current.value;
         if (todo === '') return;
         addTodo(todo, project.id);
         todoNameRef.current.value = '';
+    }
+    function handleClearTodos() {
+        clearTodos(project.id);
     }
 
     return(
@@ -18,7 +21,7 @@ export default function TodoList({ project, addTodo, toggleTodo }){
                 <div>
                     <input ref={ todoNameRef } type='text' />
                     <button onClick={handleAddTodo}>Add New Todo</button>
-                    <button>Clear Completed</button>
+                    <button onClick={handleClearTodos}>Clear Completed</button>
                 </div>
             </div>
         </div>
