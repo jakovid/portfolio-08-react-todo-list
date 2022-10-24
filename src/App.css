@@ -24,6 +24,11 @@
     background-color: lightblue;
 }
 
+#todoList {
+    display: flex;
+    flex-direction: column;
+}
+
 #footer {
     display: flex;
     background-color: gray;

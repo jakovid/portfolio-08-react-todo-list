@@ -22,6 +22,22 @@ export default function TodoMain() {
         setSelectedProject(theProject);
     }
 
+    function addTodo(todo, id){
+        const newProjects = [...projects];
+        const targetProject = newProjects.find(targetProject => targetProject.id === id);
+        const newTodo = {todo:todo, id:uuidv4(), complete:false}
+        targetProject.todos.push(newTodo);
+        setProjects(newProjects);
+    }
+
+    function toggleTodo(projectId, todoId) {
+        const newProjects = [...projects];
+        const project = newProjects.find(targetProject => targetProject.id === projectId);
+        const todo = project.todos.find(targetTodo => targetTodo.id === todoId);
+        todo.complete = !todo.complete;
+        setProjects(newProjects);
+    }
+
     return (
         <div id='todoBody'>
             <div id='projectList'>
@@ -38,7 +54,7 @@ export default function TodoMain() {
                 <button onClick={handleAddProject}>add new project</button>
             </div>
             <div id='todoList'>
-                <TodoList project={ selectedProject }/>
+                <TodoList project={ selectedProject } addTodo={addTodo} toggleTodo={toggleTodo} />
             </div>
         </div>
     )
