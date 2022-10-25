@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import PopulateProjectList from "./PopulateProjectList";
 import TodoList from "./TodoList";
 import { v4 as uuidv4 } from 'uuid';
@@ -7,6 +7,16 @@ export default function TodoMain() {
     const [projects, setProjects] = useState([{ id: uuidv4(), name: 'Today', default:true, todos:[{todo:'eat', id:uuidv4(), complete:false}]},{ id: uuidv4(), name: 'This Week', default:true, todos:[]}]);
     const [selectedProject, setSelectedProject] = useState(projects.find(project => project.name === 'Today'));
     const projectNameRef = useRef();
+    const LOCAL_STORAGE_KEY = 'todoApp.projects';
+
+    useEffect(() => {
+        const storedProjects = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
+        if (storedProjects) setProjects(storedProjects)
+      }, [])
+    
+      useEffect(() => {
+        localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(projects))
+      }, [projects])
 
     function handleAddProject(e) {
         const name = projectNameRef.current.value;
