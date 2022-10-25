@@ -14,7 +14,8 @@ function handleDeleteProject(){
             <div className='projectName' onClick={handleProjectSelect}>
                 { project.name }
             </div>
-            {!project.default ? <button onClick={handleDeleteProject}>Delete</button> : null}
+            <div> {project.todos.length} </div>
+            {!project.default ? <button onClick={handleDeleteProject}>X</button> : null}
         </div>
     )
 }

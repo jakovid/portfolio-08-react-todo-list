@@ -46,11 +46,11 @@ export default function TodoMain() {
     }
 
     function deleteProject(projectId){
-        const newProjects = [...projects];
+        let newProjects = [...projects];
         newProjects = newProjects.filter(targetProject => targetProject.id != projectId);
         console.log(projectId);
         console.log(newProjects);
-        // setProjects(newProjects);
+        setProjects(newProjects);
     }
 
     return (
