@@ -45,16 +45,24 @@ export default function TodoMain() {
         setProjects(newProjects);
     }
 
+    function deleteProject(projectId){
+        const newProjects = [...projects];
+        newProjects = newProjects.filter(targetProject => targetProject.id != projectId);
+        console.log(projectId);
+        console.log(newProjects);
+        // setProjects(newProjects);
+    }
+
     return (
         <div id='todoBody'>
             <div id='projectList'>
                 <h2>Default Projects</h2>
 
-                <PopulateProjectList selectProject={selectProject} projects={ projects.filter(project => project.default) } />
+                <PopulateProjectList selectProject={selectProject} projects={ projects.filter(project => project.default)} deleteProject={deleteProject} />
 
                 <h2>My Projects</h2>
 
-                <PopulateProjectList selectProject={selectProject} projects={ projects.filter(project => !project.default) } />
+                <PopulateProjectList selectProject={selectProject} projects={ projects.filter(project => !project.default)} deleteProject={deleteProject} />
 
                 <input ref={projectNameRef} type='text'/>
 

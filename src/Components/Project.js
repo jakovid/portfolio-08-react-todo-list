@@ -1,13 +1,20 @@
 import React from "react";
 
-export default function Project({ project, selectProject }) {
+export default function Project({ project, selectProject, deleteProject }) {
 function handleProjectSelect(){
     selectProject(project.id)
 }
 
+function handleDeleteProject(){
+    deleteProject(project.id)
+}
+
     return (
-        <div className='projectName' onClick={handleProjectSelect}>
-            { project.name }
+        <div>
+            <div className='projectName' onClick={handleProjectSelect}>
+                { project.name }
+            </div>
+            {!project.default ? <button onClick={handleDeleteProject}>Delete</button> : null}
         </div>
     )
 }
