@@ -1,4 +1,5 @@
-A simple todo list created using react
+A simple todo list created using react.
+Focuses on the use of functional components because class components are terrible creations.
 
 # Getting Started with Create React App
 
