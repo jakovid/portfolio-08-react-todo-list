@@ -2,7 +2,7 @@
     margin: 0;
 }
 
-#todoContainer {
+#appContainer {
     display: grid;
     grid-template-rows: 2fr 15fr 1fr;
     height: 100vh;
@@ -51,14 +51,41 @@
     background-size: 50px 10px;
 }
 
+#todoContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    background-color: lightgreen;
+    height: 100%;
+}
+
+#todoListHeader {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
 #todoList {
     display: flex;
     flex-direction: column;
+    gap: 0.5rem;
+}
+
+.todoItem {
+    display: flex;
+    font-size: 1.5rem;
+    gap: 1rem;
 }
 
 #footer {
     display: flex;
     background-color: gray;
+    color: white;
     justify-content: center;
     align-items: center;
+    gap: 1rem;
+}
+
+#githubLogo {
+    height: 1.5rem;
 }

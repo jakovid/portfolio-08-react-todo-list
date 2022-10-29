@@ -18,8 +18,11 @@ export default function TodoList({ project, addTodo, toggleTodo, clearTodos, del
     }
 
     return(
-        <div>
-            <h2>{project.name}</h2>
+        <div id="todoContainer">
+            <div id="todoListHeader">
+                <h1>{project.name}</h1>
+                {!project.default ? <button onClick={handleDeleteProject}>delete</button> : null}
+            </div>
             <div id='todoList'>
                 <PopulateTodoList projectId={project.id}todos={ project.todos } toggleTodo={ toggleTodo }/>
                 <div>
@@ -27,7 +30,6 @@ export default function TodoList({ project, addTodo, toggleTodo, clearTodos, del
                     <button onClick={handleAddTodo}>Add New Todo</button>
                     <button onClick={handleClearTodos}>Clear Completed</button>
                 </div>
-                {!project.default ? <button onClick={handleDeleteProject}>X</button> : null}
             </div>
         </div>
     )

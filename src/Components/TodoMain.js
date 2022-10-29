@@ -68,7 +68,7 @@ export default function TodoMain() {
             <div id='projectList'>
                 <PopulateProjectList selectProject={selectProject} projects={ projects.filter(project => project.default)} />
 
-                <h2>Projects</h2>
+                <h1>Projects</h1>
 
                 <PopulateProjectList selectProject={selectProject} projects={ projects.filter(project => !project.default)}  />
 

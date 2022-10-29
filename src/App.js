@@ -6,7 +6,7 @@ import './App.css';
 
 function App() {
   return (
-    <div id='todoContainer'>
+    <div id='appContainer'>
       <Header />
       <TodoMain />
       <Footer />
