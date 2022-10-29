@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/portfolio-08-react-todo-list/static/css/main.e072a86d.css",
+    "main.js": "/portfolio-08-react-todo-list/static/js/main.649a4376.js",
+    "index.html": "/portfolio-08-react-todo-list/index.html",
+    "main.e072a86d.css.map": "/portfolio-08-react-todo-list/static/css/main.e072a86d.css.map",
+    "main.649a4376.js.map": "/portfolio-08-react-todo-list/static/js/main.649a4376.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e072a86d.css",
+    "static/js/main.649a4376.js"
+  ]
+}
