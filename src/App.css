@@ -4,24 +4,29 @@
 
 #todoContainer {
     display: grid;
-    grid-template-rows: 2fr 10fr 1fr;
+    grid-template-rows: 2fr 15fr 1fr;
     height: 100vh;
 }
 
 #header {
     display: flex;
-    background-color: gray;
-    justify-content: center;
+    background-color: darkred;
+    color: white;
+    justify-content: left;
     align-items: center;
+    padding: 1rem;
 }
 
 #todoBody {
     display: grid;
-    grid-template-columns: 1fr 5fr;
+    grid-template-columns: 2fr 6fr;
 }
 
 #projectList {
-    background-color: lightblue;
+    display: flex;
+    flex-direction: column;
+    background-color: lightgray;
+    padding: 1rem;
 }
 
 .projectItem {
@@ -29,14 +34,21 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    padding: 0.5rem;
+    border-radius: 5px;
+    font-size: 1.5rem;
 }
 
-.projectName {
-    font-size: 1.25rem;
+.projectItem:hover {
+    background-color: rgb(177, 177, 177);
 }
 
-.projectName:hover {
+.projectItem:hover {
     cursor: pointer;
+}
+
+.projectIcon {
+    background-size: 50px 10px;
 }
 
 #todoList {

@@ -4,7 +4,7 @@ import TodoList from "./TodoList";
 import { v4 as uuidv4 } from 'uuid';
 
 export default function TodoMain() {
-    const [projects, setProjects] = useState([{ id: uuidv4(), name: 'Today', default:true, todos:[{todo:'eat', id:uuidv4(), complete:false}]},{ id: uuidv4(), name: 'This Week', default:true, todos:[]}]);
+    const [projects, setProjects] = useState([{ id: uuidv4(), name: 'Today', default:true, todos:[{todo:'eat', id:uuidv4(), complete:false}]},{ id: uuidv4(), name: 'This Week', default:true, todos:[]},{ id: uuidv4(), name: 'This Month', default:true, todos:[{todo:'sleep', id:uuidv4(), complete:false}]}]);
     const [selectedProject, setSelectedProject] = useState(projects.find(project => project.name === 'Today'));
     const projectNameRef = useRef();
     const LOCAL_STORAGE_KEY = 'todoApp.projects';
@@ -66,11 +66,9 @@ export default function TodoMain() {
     return (
         <div id='todoBody'>
             <div id='projectList'>
-                <h2>Default Projects</h2>
-
                 <PopulateProjectList selectProject={selectProject} projects={ projects.filter(project => project.default)} />
 
-                <h2>My Projects</h2>
+                <h2>Projects</h2>
 
                 <PopulateProjectList selectProject={selectProject} projects={ projects.filter(project => !project.default)}  />
 
