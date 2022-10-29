@@ -21,13 +21,13 @@ export default function TodoList({ project, addTodo, toggleTodo, clearTodos, del
         <div id="todoContainer">
             <div id="todoListHeader">
                 <h1>{project.name}</h1>
-                {!project.default ? <button onClick={handleDeleteProject}>delete</button> : null}
+                {!project.default ? <button id='removeProject' onClick={handleDeleteProject}>Remove Project</button> : null}
             </div>
             <div id='todoList'>
-                <PopulateTodoList projectId={project.id}todos={ project.todos } toggleTodo={ toggleTodo }/>
+            <PopulateTodoList projectId={project.id}todos={ project.todos } toggleTodo={ toggleTodo }/>
                 <div>
                     <input ref={ todoNameRef } type='text' />
-                    <button onClick={handleAddTodo}>Add New Todo</button>
+                    <button  onClick={handleAddTodo}>Add New Todo</button>
                     <button onClick={handleClearTodos}>Clear Completed</button>
                 </div>
             </div>
