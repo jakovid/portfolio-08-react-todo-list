@@ -24,6 +24,21 @@
     background-color: lightblue;
 }
 
+.projectItem {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.projectName {
+    font-size: 1.25rem;
+}
+
+.projectName:hover {
+    cursor: pointer;
+}
+
 #todoList {
     display: flex;
     flex-direction: column;

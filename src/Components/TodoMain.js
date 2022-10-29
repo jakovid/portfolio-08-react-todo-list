@@ -68,18 +68,18 @@ export default function TodoMain() {
             <div id='projectList'>
                 <h2>Default Projects</h2>
 
-                <PopulateProjectList selectProject={selectProject} projects={ projects.filter(project => project.default)} deleteProject={deleteProject} />
+                <PopulateProjectList selectProject={selectProject} projects={ projects.filter(project => project.default)} />
 
                 <h2>My Projects</h2>
 
-                <PopulateProjectList selectProject={selectProject} projects={ projects.filter(project => !project.default)} deleteProject={deleteProject} />
+                <PopulateProjectList selectProject={selectProject} projects={ projects.filter(project => !project.default)}  />
 
                 <input ref={projectNameRef} type='text'/>
 
                 <button onClick={handleAddProject}>add new project</button>
             </div>
             <div id='todoList'>
-                <TodoList project={ selectedProject } addTodo={addTodo} toggleTodo={toggleTodo} clearTodos={clearTodos} />
+                <TodoList project={ selectedProject } addTodo={addTodo} toggleTodo={toggleTodo} clearTodos={clearTodos} deleteProject={deleteProject}/>
             </div>
         </div>
     )
