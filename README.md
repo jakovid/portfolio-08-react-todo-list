@@ -1,6 +1,8 @@
 A simple todo list created using react.
 Focuses on the use of functional components because class components are terrible creations.
 
+This project is completed
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
